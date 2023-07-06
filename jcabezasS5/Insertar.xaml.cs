@@ -31,7 +31,10 @@ namespace jcabezasS5
                 parametros.Add("apellido", txtApellido.Text);
                 parametros.Add("edad", txtEdad.Text);
                 cliente.UploadValues(Url, "POST", parametros);
-                DisplayAlert("Alerta", "Ingreso correcto", "Cerrar");
+                //mensaje TOAST en lugar del display alert
+                var mensaje = "Datos ingresados";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
+                //DisplayAlert("Alerta", "Ingreso correcto", "Cerrar");
                 Navigation.PushAsync(new MainPage());
             }
 

@@ -38,8 +38,10 @@ namespace jcabezasS5
                 parametros.Add("edad", txtEdad.Text);
 
                 cliente.UploadValues(Url, "PUT", cliente.QueryString = parametros);
-                
-                DisplayAlert("Alerta", "Actualización correcta", "Cerrar");
+                // Implementamos el mensaje TOAST
+                var mensaje = "Datos Actualizados";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
+                // DisplayAlert("Alerta", "Actualización correcta", "Cerrar");
                 Navigation.PushAsync(new MainPage());
             }
 
@@ -61,8 +63,10 @@ namespace jcabezasS5
                 parametros.Add("codigo", txtCodigo.Text);
 
                 cliente.UploadValues(Url, "DELETE", cliente.QueryString = parametros);
-
-                DisplayAlert("Alerta", "Eliminación correcta", "Cerrar");
+                // Implementamos el mensaje TOAST
+                var mensaje = "Datos Eliminados";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
+                // DisplayAlert("Alerta", "Eliminación correcta", "Cerrar");
                 Navigation.PushAsync(new MainPage());
             }
             catch (Exception ex)
